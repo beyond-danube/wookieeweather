@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wookiee Weather</title>
+
+    <meta name="description" content="">
+    <meta name="robots" content="index, nofollow">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <script src="js/planetgetter.js"></script>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap" rel="stylesheet">
+
+    <!--
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/site.webmanifest">
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:image" content="icons/fb_preview.png">
+    -->
+</head>
+
+<body>
+    <input id="city" placeholder="Type city name here...">
+    <p style="margin-bottom: 0; margin-top: 0;">right now feels like</p> 
+    <h1 id="planet" style="margin-top: -20px; margin-bottom: 0;">Yavin IV</h1>
+    <h2 id="weather" style="margin-top: -20px; margin-bottom: 0;">+17°C, mist</h2>
+    <p style="margin-top: 0;" hidden>Pretty much a good place to be, <br>you should go outside.</p>
+    <p style="margin-top: 70px;">art by <a id="artist" href="">Someone</a></p>
+    <p style="font-size: 14px; margin-top: 140px;">All artworks belong to theier authors<br> Contacts — <a href="https://siniavtsev.io/contact">siniavtsev.io/contact</a><br></p>
+
+    <div id="keydiv">
+        <input id="key" placeholder="paste key here..."> <button id="hideBtn" onclick="hideKeyDiv()">hide key</button>
+    </div>
+
+    <script>
+        document.getElementById('city').addEventListener('input', getWeather);
+
+        function hideKeyDiv() {
+            document.getElementById('keydiv').style.display = 'none';    
+        }
+
+    </script>
+</body>
+
+</html>
