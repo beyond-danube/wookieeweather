@@ -1,8 +1,14 @@
-async function getPlanet(city) {
+const API = {
+    baseApiUrl: 'http://localhost:5000/',
+    getPlanet: 'getPlanet/',
+    getArt: 'getArt/',
+    key: '90172d2d-cf9d-4819-94c1-6898abbbb98f'
+}
 
-    let url = new URL('https://wookiee-weather.herokuapp.com/getPlanet/' + city + '/' + document.getElementById('key').value)
+async function getData(entity, endpoint) {
+
+    let url = new URL(API.baseApiUrl + endpoint + entity + '/' + getKey());
     let response = await fetch(url);
-
     let data = await response.json();
 
     console.log(data);
@@ -10,22 +16,14 @@ async function getPlanet(city) {
     return data;
 }
 
-async function getArt(planet) {
-
-    let url = new URL('https://wookiee-weather.herokuapp.com/getArt/' + planet + '/' + document.getElementById('key').value)
-    let response = await fetch(url);
-
-    let data = await response.json();
-
-    console.log(data);
-
-    return data;    
+function getKey() {
+    return API.key ? API.key : document.getElementById('key').value;
 }
 
 function getWeather() {
-    getPlanet(document.getElementById('city').value).then(function (result) {
+    getData(document.getElementById('city').value, API.getPlanet).then(function (result) { 
         applyWeatherValues(result);        
-        getArt(result.planet).then(artResult => applyIllustration(artResult)).catch(e => console.log(e.message));
+        getData(result.planet, API.getArt).then(artResult => applyIllustration(artResult)).catch(e => console.log(e.message));
     }).catch(e => console.log(e.message));
 };
 
