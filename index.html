@@ -39,7 +39,15 @@
     </div>
 
     <script>
-        document.getElementById('city').addEventListener('input', getWeather);
+
+        let timeout = null;
+
+        document.getElementById('city').addEventListener('keyup', () => {
+            
+            clearTimeout(timeout);
+
+            timeout = setTimeout(getWeather, 700)
+        });
 
         function hideKeyDiv() {
             document.getElementById('keydiv').style.display = 'none';    
