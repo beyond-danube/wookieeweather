@@ -1,23 +1,12 @@
-const API = {
-    baseApiUrl: 'http://localhost:5000/',
-    getPlanet: 'getPlanet/',
-    getArt: 'getArt/',
-    key: '90172d2d-cf9d-4819-94c1-6898abbbb98f'
-}
-
 async function getData(entity, endpoint) {
 
-    let url = new URL(API.baseApiUrl + endpoint + entity + '/' + getKey());
+    let url = new URL(API.baseApiUrl + endpoint + entity);
     let response = await fetch(url);
     let data = await response.json();
 
     console.log(data);
 
     return data;
-}
-
-function getKey() {
-    return API.key ? API.key : document.getElementById('key').value;
 }
 
 function getWeather() {

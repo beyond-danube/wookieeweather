@@ -8,6 +8,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
     <script src="js/planetgetter.js"></script>
+    <script src="js/config.js"></script>
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -32,27 +33,19 @@
     <h2 id="weather" style="margin-top: -20px; margin-bottom: 0;">+17°C, mist</h2>
     <p style="margin-top: 0;" hidden>Pretty much a good place to be, <br>you should go outside.</p>
     <p style="margin-top: 70px;">art by <a id="artist" href="">Someone</a></p>
-    <p style="font-size: 14px; margin-top: 140px;">All artworks belong to theier authors<br> Contacts — <a href="https://siniavtsev.io/contact">siniavtsev.io/contact</a><br></p>
-
-    <div id="keydiv">
-        <input id="key" placeholder="paste key here..."> <button id="hideBtn" onclick="hideKeyDiv()">hide key</button>
-    </div>
+    <p style="font-size: 14px; margin-top: 140px; position: fixed; bottom: 10px;">All artworks belong to theier authors<br> Development — <a href="https://siniavtsev.io/">siniavtsev.io</a><br></p>
 
     <script>
 
         let timeout = null;
 
-        document.getElementById('city').addEventListener('keyup', () => {
+        document.getElementById('city').addEventListener('keyup', (e) => {
             
             clearTimeout(timeout);
 
             timeout = setTimeout(getWeather, 700)
         });
-
-        function hideKeyDiv() {
-            document.getElementById('keydiv').style.display = 'none';    
-        }
-
+        
     </script>
 </body>
 
