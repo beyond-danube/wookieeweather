@@ -10,7 +10,14 @@ async function getData(entity, endpoint) {
 }
 
 function getWeather() {
-    getData(document.getElementById('city').value, API.getPlanet).then(function (result) { 
+
+    let cityFieldValue = document.getElementById('city').value;
+
+    let city = cityFieldValue ? cityFieldValue : '';
+
+    let path = cityFieldValue ? API.getPlanet : API.getRandomPlanet;
+
+    getData(city, path).then(function (result) { 
         applyWeatherValues(result);        
         getData(result.planet, API.getArt).then(artResult => applyIllustration(artResult)).catch(e => console.log(e.message));
     }).catch(e => console.log(e.message));

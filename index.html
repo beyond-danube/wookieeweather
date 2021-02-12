@@ -29,8 +29,8 @@
 <body>
     <input id="city" placeholder="Type city name here...">
     <p style="margin-bottom: 0; margin-top: 0;">right now feels like</p> 
-    <h1 id="planet" style="margin-top: -20px; margin-bottom: 0;">Yavin IV</h1>
-    <h2 id="weather" style="margin-top: -20px; margin-bottom: 0;">+17°C, mist</h2>
+    <h1 id="planet" style="margin-top: -20px; margin-bottom: 0;"></h1>
+    <h2 id="weather" style="margin-top: -20px; margin-bottom: 0;"></h2>
     <p style="margin-top: 0;" hidden>Pretty much a good place to be, <br>you should go outside.</p>
     <p style="margin-top: 70px;">art by <a id="artist" href="">Someone</a></p>
     <p style="font-size: 14px; margin-top: 140px; position: fixed; bottom: 10px;">All artworks belong to theier authors<br> Development — <a href="https://siniavtsev.io/">siniavtsev.io</a><br></p>
@@ -45,6 +45,8 @@
 
             timeout = setTimeout(getWeather, 700)
         });
+
+        window.addEventListener('load', getWeather);
 
     </script>
 </body>
