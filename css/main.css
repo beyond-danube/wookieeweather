@@ -56,6 +56,12 @@ a {
     border-bottom: 1px solid rgba(255,255,255,.5);
 }
 
+.footer {
+    position: absolute;
+    bottom: 10px;
+    font-size: 14px;
+}
+
 @media screen and (max-width: 1024px) {
     p {
         font-size: 36px;
@@ -68,8 +74,8 @@ a {
     h2 {
         font-size: 48px;
     }
-}
 
-#key {
-    font-size: 14px;
+    .footer {
+        font-size: 24px;
+    }
 }
