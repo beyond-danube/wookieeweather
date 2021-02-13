@@ -19,13 +19,22 @@ function getWeather() {
 
     getData(city, path).then(function (result) { 
         applyWeatherValues(result);        
-        getData(result.planet, API.getArt).then(artResult => applyIllustration(artResult)).catch(e => console.log(e.message));
+        getData(result.name, API.getArt).then(artResult => applyIllustration(artResult)).catch(e => console.log(e.message));
     }).catch(e => console.log(e.message));
 };
 
 function applyWeatherValues(forecast) {
-    document.getElementById('planet').innerText = forecast.planet.toUpperCase();
-    document.getElementById('weather').innerText = (parseInt(forecast.temperature) > 0 ? '+' + parseInt(forecast.temperature) : parseInt(forecast.temperature)) + '°C'
+
+    let weather = [];
+
+    weather.push((parseInt(forecast.temperature) > 0 ? '+' + parseInt(forecast.temperature) : parseInt(forecast.temperature)) + '°C');
+
+    forecast.weather.forEach(e => {
+        weather.push(e);
+    });
+
+    document.getElementById('planet').innerText = forecast.name.toUpperCase();
+    document.getElementById('weather').innerText = weather.join(', ');
 };
 
 function applyIllustration(data) {
