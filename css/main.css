@@ -1,16 +1,30 @@
-body { 
-    margin-left: 10%;
-    margin-top: 5%;
-    margin-right: 0;
-    margin-bottom: 0;
+body {
+    margin: 0;
     padding: 0;
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color:aliceblue;
+    background-color:black;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#main {
     background-attachment: fixed;
     background-position: left;
     background-repeat: no-repeat;
-    background-color: black;
     background-size: cover;
-    font-family: 'Open Sans', 'Roboto', sans-serif;
-    color:aliceblue;
+    height: 100vh;
+    width: 100vw;
+}
+
+#main-inner {
+    padding-left: 10%;
+    padding-top: 5%;
 }
 
 h1 {
@@ -59,8 +73,23 @@ a {
 .footer {
     position: absolute;
     bottom: 10px;
+    font-size: 18px;
+}
+
+.artits-info {
     font-size: 14px;
 }
+
+#planets-artists {
+    padding-left: 10%;
+}
+
+.artits-info-wrapper {
+    margin-right: 4%;
+    display: inline-block;
+    vertical-align: top;
+}
+
 
 @media screen and (max-width: 1024px) {
     p {
@@ -77,5 +106,9 @@ a {
 
     .footer {
         font-size: 24px;
+    }
+
+    .artits-info {
+        font-size: 14px;
     }
 }

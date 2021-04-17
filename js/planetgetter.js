@@ -39,11 +39,46 @@ function applyWeatherValues(forecast) {
 
 function applyIllustration(data) {
 
-    document.body.style.backgroundImage = `url('${data.artLink}')`;
-    document.body.style.backgroundPosition = data.position;
+    let main = document.getElementById('main');
+
+    main.style.backgroundImage = `url('${data.artLink}')`;
+    main.style.backgroundPosition = data.position;
     
     let artist = document.getElementById('artist');
 
     artist.innerHTML = data.artist;
     artist.href = data.artistProfile;
-}
+};
+
+function getPlanetsArtistsToFooter() {
+    
+    let arttistsInfo = document.getElementById('planets-artists');
+
+    console.log(API.getPlanetsArtists);
+
+    getData("", API.getPlanetsArtists).then(function (result) {
+        result.data.forEach(p => {
+            let arttistWrapper = document.createElement('div');
+            arttistWrapper.classList.add('artits-info-wrapper');
+
+            let planetName = document.createElement('p');
+            planetName.innerText = p.name.toUpperCase();
+
+            arttistWrapper.appendChild(planetName);
+
+            p.artists.forEach(a => {
+                let artist = document.createElement('div');
+
+                let link = document.createElement('a');
+
+                link.innerText = a.artist;
+                link.href = a.artistProfile;
+
+                artist.appendChild(link);
+                arttistWrapper.appendChild(artist);
+            });
+
+            arttistsInfo.appendChild(arttistWrapper);
+        });
+    }).catch(e => console.log(e.message));
+};
