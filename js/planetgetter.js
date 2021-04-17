@@ -54,8 +54,6 @@ function getPlanetsArtistsToFooter() {
     
     let arttistsInfo = document.getElementById('planets-artists');
 
-    console.log(API.getPlanetsArtists);
-
     getData("", API.getPlanetsArtists).then(function (result) {
         result.data.forEach(p => {
             let arttistWrapper = document.createElement('div');
