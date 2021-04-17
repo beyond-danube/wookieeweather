@@ -61,14 +61,16 @@ function getPlanetsArtistsToFooter() {
             let arttistWrapper = document.createElement('div');
             arttistWrapper.classList.add('artits-info-wrapper');
 
-            let planetName = document.createElement('p');
+            let planetName = document.createElement('h1');
+            planetName.classList.add('footer');
             planetName.innerText = p.name.toUpperCase();
 
             arttistWrapper.appendChild(planetName);
 
             p.artists.forEach(a => {
                 let artist = document.createElement('div');
-
+                artist.classList.add('footer');
+                
                 let link = document.createElement('a');
 
                 link.innerText = a.artist;
