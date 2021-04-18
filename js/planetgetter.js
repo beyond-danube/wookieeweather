@@ -56,29 +56,37 @@ function getPlanetsArtistsToFooter() {
 
     getData("", API.getPlanetsArtists).then(function (result) {
         result.data.forEach(p => {
-            let arttistWrapper = document.createElement('div');
-            arttistWrapper.classList.add('artits-info-wrapper');
 
-            let planetName = document.createElement('h1');
-            planetName.classList.add('footer');
-            planetName.innerText = p.name.toUpperCase();
-
-            arttistWrapper.appendChild(planetName);
+            let planetArtistsInfoWrapper = addClassToNode(createNode('div', ''), 'planet-artists-info-wrapper');
+            planetArtistsInfoWrapper.appendChild(addClassToNode(createNode('h1', p.name.toUpperCase()), 'footer'));
 
             p.artists.forEach(a => {
-                let artist = document.createElement('div');
-                artist.classList.add('footer');
-                
-                let link = document.createElement('a');
+                let artist = addClassToNode(createNode('div', ''), 'footer');
+                artist.appendChild(addLink(createNode('a', a.artist), a.artistProfile));
 
-                link.innerText = a.artist;
-                link.href = a.artistProfile;
-
-                artist.appendChild(link);
-                arttistWrapper.appendChild(artist);
+                planetArtistsInfoWrapper.appendChild(artist);
             });
 
-            arttistsInfo.appendChild(arttistWrapper);
+            arttistsInfo.appendChild(planetArtistsInfoWrapper);
         });
     }).catch(e => console.log(e.message));
 };
+
+function createNode(tagName, text) {
+    let node = document.createElement(tagName);
+    node.innerText = text;
+
+    return node;
+}
+
+function addClassToNode(node, className) {
+    node.classList.add(className);
+    
+    return node;
+}
+
+function addLink(node, href) {
+    node.href = href;
+
+    return node;
+}
