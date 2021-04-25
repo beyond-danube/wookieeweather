@@ -72,6 +72,10 @@ a {
     border-bottom: 1px solid rgba(255,255,255,.5);
 }
 
+a:hover {
+    cursor:pointer;
+   }
+
 a.samepage {
     border-bottom: 1px dashed rgba(255,255,255,.5);
 }

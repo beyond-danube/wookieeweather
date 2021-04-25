@@ -50,7 +50,7 @@
             <p style="margin-top: 0;" hidden>Pretty much a good place to be, <br>you should go outside.</p>
             <p style="margin-top: 70px;">art by <a id="artist" href=""></a></p>
             <p class="footer" id="footer-info">
-                All artworks belong to their <a class="samepage" href="#planets-artists">authors</a><br>
+                All artworks belong to their <a class="samepage" onclick="scrollToArtists()">authors</a><br>
                 X-Wing Logo — <a href="https://icons8.com">icons8.com</a><br>
                 Original idea — <a href="https://www.tomscott.com">tomscott.com</a><br>
                 Development — <a href="https://siniavtsev.io/">siniavtsev.io</a><br>
@@ -74,6 +74,12 @@
 
             timeout = setTimeout(getWeather, 700)
         });
+
+        function scrollToArtists() {
+            let artists = document.getElementById("planets-artists");
+
+            artists.scrollIntoView();
+        }
 
     </script>
 </body>
