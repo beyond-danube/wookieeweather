@@ -99,6 +99,12 @@ h1.footer {
     margin-bottom: 3%;
 }
 
+.footer-links {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
 .planet-artists-info-wrapper {
     padding-top: 1%;
 }
